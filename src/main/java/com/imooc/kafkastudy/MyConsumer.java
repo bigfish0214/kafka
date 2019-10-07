@@ -139,7 +139,6 @@ public class MyConsumer {
                     System.out.println(String.format("topic = %s, partition = %s, key = %s, value = %s",
                             record.topic(), record.partition(), record.key(), record.value()));
                 }
-
                 consumer.commitAsync();
             }
         } catch (Exception e) {
