@@ -40,7 +40,6 @@ public class MyConsumer {
                         flag = false;
                     }
                 }
-
                 if(!flag) {
                     break;
                 }
