@@ -116,17 +116,14 @@ public class MyConsumer {
                     flag = false;
                 }
             }
-
             consumer.commitAsync((map, e) -> {
                 if(e != null){
                     System.out.println("commit failed for offsets: " + e.getMessage());
                 }
             });
-
             if(!flag) {
                 break;
             }
-
         }
     }
 
