@@ -53,6 +53,7 @@ public class MyConsumer {
         properties.put("enable.auto.commit", "false");
         consumer = new KafkaConsumer<String, String>(properties);
         consumer.subscribe(Collections.singletonList("imooc-kafka-study-x"));
+
         while(true) {
             boolean flag = true;
             ConsumerRecords<String, String> records = consumer.poll(100);
@@ -63,13 +64,11 @@ public class MyConsumer {
                     flag = false;
                 }
             }
-
             try{
                 consumer.commitSync();
             }catch (CommitFailedException ex) {
                 System.out.println("commit failed error: " + ex.getMessage());
             }
-
             if(!flag) {
                 break;
             }
@@ -155,8 +154,6 @@ public class MyConsumer {
                 consumer.close();
             }
         }
-
-
     }
 
     public static void main(String[] args) {
